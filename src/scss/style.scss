@@ -1,48 +1,196 @@
+@mixin centering() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hoverPagination() {
+  background: #2EE59D;
+  box-shadow: 0 -10px 20px rgba(46,229,157,.4);
+  color: white;
+  cursor: pointer;
+}
+
 
 body {
-    background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
 }
 
-.todo__list {
-    background-color: white;
-    margin: auto;
-    width: 50%;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  border: 1px solid #a1a8ad;
+  background-color: whitesmoke;
+  min-width: 850px;
+
+  &__title {
+    @include centering();
+  }
+}
+
+.table {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
+  height: 100%;
+  border-top: 1px solid #a1a8ad;
+  background-color: whitesmoke;
+
+  &__row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #efefef;
-    box-shadow:
-    /* The top layer shadow */
-        0 1px 1px rgba(0,0,0,0.15),
-            /* The second layer */
-        0 10px 0 -5px #eee,
-            /* The second layer shadow */
-        0 10px 1px -4px rgba(0,0,0,0.15),
-            /* The third layer */
-        0 20px 0 -10px #eee,
-            /* The third layer shadow */
-        0 20px 1px -9px rgba(0,0,0,0.15);
-    padding: 30px;
-}
+    flex-flow: row nowrap;
+    align-items: stretch;
+    flex-basis: 50px;
+    &-id {
+      @include centering();
+      flex: 0 0 10%;
+      border-right: #a1a8ad solid 1px;
+      border-bottom: #a1a8ad solid 2px;
+      font-size: 20px;
+      font-family: Segoe Print, sans-serif;
+    }
 
-.todo__item {
+    &-title {
+      @include centering();
+      flex: 0 0 40%;
+      border-right: #a1a8ad solid 1px;
+      border-bottom: #a1a8ad solid 2px;
+      font-size: 20px;
+      font-family: Segoe Print, sans-serif;
+    }
+
+    &-date {
+      @include centering();
+      flex: 0 0 20%;
+      border-right: #a1a8ad solid 1px;
+      border-bottom: #a1a8ad solid 2px;
+      font-size: 20px;
+      font-family: Segoe Print, sans-serif;
+    }
+
+    &-edit {
+      @include centering();
+      flex: 0 0 29.8%;
+      border-bottom: #a1a8ad solid 2px;
+      font-size: 20px;
+      font-family: Segoe Print, sans-serif;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 40px;
+
+    &-wrap {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      justify-content: center;
+      flex-basis: 700px;
+      //border-top: 1px #a1a8ad solid;
+      //border-left: 1px #a1a8ad solid;
+      //border-right: 1px #a1a8ad solid;
+
+    }
+
+    &-last {
+      @include centering();
+      flex: 0 0 14.5%;
+      border: #a1a8ad solid 1px;
+      margin: 5px 2px;
+      font-size: 14px;
+      font-family: Segoe Print, sans-serif;
+      &:hover {
+        @include hoverPagination();
+        transform: translateX(-5px);
+      }
+    }
+
+    &-first {
+      @include centering();
+      flex: 0 0 4%;
+      border: 1px #a1a8ad solid ;
+      margin: 5px 2px;
+      font-family: Colus, sans-serif;
+      font-style: italic;
+      &:hover {
+        @include hoverPagination();
+      }
+    }
+
+    &-second {
+      @include centering();
+      flex: 0 0 4%;
+      border: #a1a8ad solid 1px;
+      margin: 5px 2px;
+      font-family: Colus, sans-serif;
+      font-style: italic;
+      &:hover {
+        @include hoverPagination();
+      }
+    }
+
+    &-third {
+      @include centering();
+      flex: 0 0 4%;
+      border: #a1a8ad solid 1px;
+      margin: 5px 2px;
+      font-family: Colus, sans-serif;
+      font-style: italic;
+      &:hover {
+        @include hoverPagination();
+      }
+    }
+
+    &-next {
+      @include centering();
+      flex: 0 0 14.5%;
+      border: #a1a8ad solid 1px;
+      margin: 5px 2px;
+      font-size: 14px;
+      font-family: Segoe Print, sans-serif;
+      //clip-path: polygon(0 0, 80% 0, 100% 0, 100% 50%, 100% 100%, 80% 100%, 0 100%);
+      //transition: clip-path 0.5s;
+      &:hover {
+       // clip-path: polygon(0 35%,  80% 35%, 80% 10%, 100% 50%, 80% 90%, 80% 65%, 0 65%);
+        @include hoverPagination();
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &__add {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 30px 20px 0;
-    width: 70%;
-    border-bottom: 1px solid #cecece;
-    font-family: Roboto, sans-serif;
-    font-weight: 100;
-    font-size: 15px;
-    color: #333333;
+
+    &-style {
+      text-decoration: none;
+      outline: none;
+      height: 45px;
+      border-radius: 45px;
+      margin: 10px 20px;
+      font-family: Segoe Print, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #524f4e;
+      background: white;
+      box-shadow: 0 8px 15px rgba(0,0,0,.1);
+      transition: .3s;
+      border: #a1a8ad solid 1px;
+      &:hover {
+        background: #2EE59D;
+        box-shadow: 0 15px 20px rgba(46,229,157,.4);
+        color: white;
+        transform: translateX(5px);
+        cursor: pointer;
+      }
+    }
+  }
 }
 
-input[type=checkbox] {
-    margin-right: 10px;
-    font-size: 30px;
-}
-
-input[type=checkbox]:focus {
-    outline: 0;
-}

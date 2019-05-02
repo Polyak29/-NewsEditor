@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Myinf from "./app";
+import App from './App';
 
-ReactDOM.render(<div>
-                    <Myinf />
-                </div>, document.getElementById("root"));
+ReactDOM.render(
+   <App/>,
+  document.getElementById('root')
+);

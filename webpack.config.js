@@ -12,6 +12,10 @@ let conf = {
 		filename: 'main.js',
 		publicPath: 'dist/'
 	},
+	devServer: {
+		historyApiFallback: true,
+		overlay: true
+	},
 	module: {
 		rules: [
 			{

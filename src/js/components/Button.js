@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-class Add extends Component {
+class Button extends Component {
   render() {
     return (
-        <div className='table__add'>
+        <div className='button'>
           <Link to='/create'>
-            <button className='table__add-style'>Добавить</button>
+            <button className='button__add'>Добавить</button>
           </Link>
         </div>
     );
   }
 }
 
-export default Add;
+export default Button;

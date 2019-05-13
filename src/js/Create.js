@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import Block from './components/ToolsBar/Block';
+import Content from './components/ToolsBar/Content';
+import ButtonBack from "./components/ButtonBack";
+
 class Create extends Component{
   render() {
     return (
-        <div>
-          <Link to='/'>Вернуться назад</Link>
-          <p>Создание Новостей</p>
+        <div className='create'>
+          <Block />
+          <Content>
+          </Content>
+         <ButtonBack />
         </div>
     );
 

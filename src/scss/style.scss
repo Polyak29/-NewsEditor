@@ -264,6 +264,7 @@ body {
   .blocks {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: flex-start;
     height: 95%;
     background: white;
     border-right: 1px solid #b8b8b8;
@@ -281,115 +282,54 @@ body {
     }
 
     &__title {
-      flex: 0 0 55%;
+      flex: 0 0 4%;
+      align-items: center;
       display: flex;
-      justify-content: center;
       margin-bottom: 0;
       font-weight: bold;
-      border: 1px solid #b8b8b8;
+      padding: 0 12px;
+      //border: 1px solid #b8b8b8;
     }
 
     &__group {
       display: flex;
       justify-content: flex-start;
-      align-items: end;
+      align-items: center;
       flex-flow: row wrap;
-      flex-basis: 230px;
       //border: 1px solid #b8b8b8;
+      justify-self: center;
+      margin: 10px 0;
 
-      &-container2 {
-        flex: 0 0 100%;
-      }
-
-      .container2 {
+      &-item {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-evenly;
         align-items: center;
-        height: 200px;
-
-        &__cell {
-          flex-basis: 95px;
-          height: 80px;
-          border: 1px solid #b8b8b8;
-          &_text {
-            height: 100%;
-            background-image: linear-gradient(transparent 50%, #a3e5a3 50%);
-          }
-        }
-      }
-    }
-
-    &__separator {
-      display: flex;
-      justify-content: flex-start;
-      align-items: end;
-      flex-flow: row wrap;
-      flex-basis: 130px;
-      //border: 1px solid #b8b8b8;
-
-      &-title {
-        flex: 0 0 67%;
-        display: flex;
         justify-content: center;
-        margin-bottom: 0;
-        font-weight: bold;
-      }
+        flex-basis: 95px;
+        height: 80px;
+        border: 1px solid #b8b8b8;
+        margin: 0px 0 0 20px;
 
-      &-container3 {
-        flex: 0 0 68%;
-      }
+        &_text {
+          flex: 0 0 80%;
+          height: 85%;
+          background: repeating-linear-gradient(0deg,#fff,#fff 10px,#465298 0px,#465298 15px);
 
-      .container3 {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 106px;
+        }
 
-        &__cell {
-          flex-basis: 95px;
-          height: 80px;
-          border: 1px solid #b8b8b8;
+        &_1separator {
+          @include centering();
+
+          flex: 0 0 80%;
+          height: 10%;
+          background: #465298;
+          border-radius: 2px;
+        }
+
+        &_question-answer {
+
         }
       }
     }
-
-    &__auxiliary {
-      display: flex;
-      justify-content: flex-start;
-      align-items: end;
-      flex-flow: row wrap;
-      flex-basis: 230px;
-      //border: 1px solid #b8b8b8;
-
-      &-title {
-        flex: 0 0 67%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0;
-        font-weight: bold;
-      }
-
-      &-container4 {
-        flex: 0 0 100%;
-      }
-
-      .container4 {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 200px;
-
-        &__cell {
-          flex-basis: 95px;
-          height: 80px;
-          border: 1px solid #b8b8b8;
-        }
-      }
-    }
-
   }
 
   &__content {
@@ -409,6 +349,50 @@ body {
         flex-basis: 30px;
         padding: 0 15px;
         background: #e4e4e4;
+      }
+
+      &__title {
+        display: flex;
+        flex-flow: column;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+
+        &-header{
+          flex: 0 0 4%;
+          align-items: center;
+          display: flex;
+          margin-bottom: 0;
+          font-weight: bold;
+          padding: 0 12px;
+        }
+
+        &-box {
+          align-self: center;
+          width: 94%;
+          margin: 10px 0 20px 0;
+          border-radius: 3px;
+          background: white;
+          min-height: 17px;
+          border: 1px solid #ccc;
+          max-height: 150px;
+          box-sizing: border-box;
+          border-radius: 3px;
+          resize: none;
+          line-height: 24px;
+          overflow: auto;
+          padding: 0 10px;
+          &:focus {
+            outline: none;
+
+          }
+        }
+      }
+
+      &__border {
+        background: #ccc;
+        flex-basis: 1px;
+        align-self: center;
+        width: 94%;
       }
     }
 

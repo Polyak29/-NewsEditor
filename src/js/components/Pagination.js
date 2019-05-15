@@ -13,16 +13,8 @@ class Pagination extends Component {
 
   static defaultProps = {};
 
-  state = {
-    active: false
-  };
-
   constructor(props) {
     super(props);
-  }
-
-  toggle(e){
-    this.setState({active: !this.state.active});
   }
 
   renderLeftDots() {
@@ -147,7 +139,6 @@ class Pagination extends Component {
     const {current} = this.props;
     const className = ['pagination__number'];
 
-
     if(current === page) {
       className.push('pagination__number_active');
     }
@@ -155,7 +146,6 @@ class Pagination extends Component {
     return (
         <div className={className.join(' ')} key={page} onClick={() => {
           this.props.onChangePage(page);
-
         }}>
           {page}
         </div>
@@ -170,7 +160,7 @@ class Pagination extends Component {
 
     if (current === countPage) {
       for (let i = 1; i <= countVisiblePage ; i++) {
-        links.push(this.renderLink(countPage -  countVisiblePage + i));
+        links.push(this.renderLink(countPage - countVisiblePage + i));
       }
       return links;
     }

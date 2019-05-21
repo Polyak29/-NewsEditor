@@ -6,7 +6,7 @@
 
 @mixin hoverPagination() {
   cursor: pointer;
-  border: 1px black solid ;
+  border: 1px black solid;
   border-radius: 50%;
   transition: border 0.5s;
 }
@@ -15,7 +15,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Microsoft YaHei UI" , sans-serif;
+  font-family: "Microsoft YaHei UI", sans-serif;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -47,6 +47,7 @@ body {
     flex-flow: row nowrap;
     align-items: stretch;
     flex-basis: 50px;
+
     &-id {
       @include centering();
       flex: 0 0 10%;
@@ -88,6 +89,7 @@ body {
     flex-flow: row nowrap;
     align-items: stretch;
     flex-basis: 50px;
+
     &-id {
       @include centering();
       flex: 0 0 10%;
@@ -141,11 +143,12 @@ body {
 
   &__last {
     @include centering();
-    border: 1px solid whitesmoke ;
+    border: 1px solid whitesmoke;
     flex: 0 0 4%;
     margin: 5px 2px;
     font-size: 14px;
     font-family: Segoe Print, sans-serif;
+
     &:hover {
       @include hoverPagination();
 
@@ -169,22 +172,24 @@ body {
 
     &_active {
       cursor: pointer;
-      border: 1px black solid ;
+      border: 1px black solid;
       border-radius: 50%;
     }
   }
 
   &__next {
     @include centering();
-    border: 1px solid whitesmoke ;
+    border: 1px solid whitesmoke;
     flex: 0 0 4%;
     margin: 5px 2px;
     font-size: 14px;
-    font-family: "Microsoft YaHei UI" , sans-serif;
+    font-family: "Microsoft YaHei UI", sans-serif;
+
     &:hover {
       @include hoverPagination();
     }
   }
+
   &__dots {
     display: flex;
     justify-content: center;
@@ -195,11 +200,12 @@ body {
 
   &__start {
     @include centering();
-    border: 1px solid whitesmoke ;
+    border: 1px solid whitesmoke;
     flex: 0 0 4%;
     margin: 5px 2px;
     font-size: 14px;
-    font-family: "Microsoft YaHei UI" , sans-serif;
+    font-family: "Microsoft YaHei UI", sans-serif;
+
     &:hover {
       @include hoverPagination();
     }
@@ -207,11 +213,12 @@ body {
 
   &__end {
     @include centering();
-    border: 1px solid whitesmoke ;
+    border: 1px solid whitesmoke;
     flex: 0 0 4%;
     margin: 5px 2px;
     font-size: 14px;
-    font-family: "Microsoft YaHei UI" , sans-serif;
+    font-family: "Microsoft YaHei UI", sans-serif;
+
     &:hover {
       @include hoverPagination();
     }
@@ -237,6 +244,7 @@ body {
     background: white;
     transition: .3s;
     border: #a1a8ad solid 1px;
+
     &:hover {
       background: #a1a8ad;
       color: white;
@@ -312,7 +320,7 @@ body {
         &_text {
           flex: 0 0 80%;
           height: 85%;
-          background: repeating-linear-gradient(0deg,#fff,#fff 10px,#465298 0px,#465298 15px);
+          background: repeating-linear-gradient(0deg, #fff, #fff 10px, #465298 0px, #465298 15px);
 
         }
 
@@ -336,71 +344,228 @@ body {
     flex: 0 0 55%;
   }
 
-    .content {
+  .content {
+    background: #e4e4e4;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 95%;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      border: 1px solid #b8b8b8;
+      flex-basis: 30px;
+      padding: 0 15px;
+      background: #e4e4e4;
+    }
+
+    &__body {
       background: white;
       display: flex;
       flex-flow: column nowrap;
-      height: 95%;
+      border: 1px solid #ccc;
+      height: auto;
+      align-items: stretch;
+      padding: 0 15px;
+    }
+  }
+}
 
-      &__header {
-        display: flex;
-        align-items: center;
-        border: 1px solid #b8b8b8;
-        flex-basis: 30px;
-        padding: 0 15px;
-        background: #e4e4e4;
-      }
+.title {
+  display: block;
 
-      &__title {
-        display: flex;
-        flex-flow: column;
-        border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
+  &:hover .control {
+    visibility: visible;
+  }
 
-        &-header{
-          flex: 0 0 4%;
-          align-items: center;
+  &__header {
+    align-items: center;
+    display: flex;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  &__box {
+    flex: 0 0 100%;
+    align-self: center;
+    width: 100%;
+    border-radius: 3px;
+    background: white;
+    min-height: 17px;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    box-sizing: border-box;
+    resize: none;
+    line-height: 24px;
+    overflow: auto;
+    padding: 0 10px;
+    margin-bottom: 10px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover .control {
+      visibility: visible;
+    }
+
+  }
+}
+
+.border {
+  background: #ccc;
+  flex-basis: 1px;
+  align-self: center;
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+.text {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px 0;
+  border-radius: 3px;
+  max-width: 100%;
+
+  &:hover .control {
+    visibility: visible;
+  }
+
+  &__toolbar {
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid #ccc;
+    background: #e4e4e4;
+
+    &:hover .control {
+      visibility: visible;
+    }
+
+    &-item {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-basis: 40px;
+      height: 30px;
+      border-right: 1px solid #ccc;
+      background: #e4e4e4;
+
+      .item {
+
+        &__wrap {
           display: flex;
-          margin-bottom: 0;
-          font-weight: bold;
-          padding: 0 12px;
-        }
-
-        &-box {
-          align-self: center;
-          width: 94%;
-          margin: 10px 0 20px 0;
-          border-radius: 3px;
-          background: white;
-          min-height: 17px;
+          justify-content: stretch;
           border: 1px solid #ccc;
-          max-height: 150px;
-          box-sizing: border-box;
-          border-radius: 3px;
-          resize: none;
-          line-height: 24px;
-          overflow: auto;
-          padding: 0 10px;
-          &:focus {
-            outline: none;
+          height: 80%;
+          flex-basis: 80%;
+          font_size: 14px;
 
+          &-icon {
+            @include centering();
+            flex: 1;
+          }
+
+          &-select {
+            @include centering();
+
+            background: #e4e4e4;
+            border: 1px none #ccc;
+            border-left-style: solid;
+            flex: 1;
+            font_size: 12px;
+
+            &:focus {
+              outline: none;
+            }
           }
         }
-      }
-
-      &__border {
-        background: #ccc;
-        flex-basis: 1px;
-        align-self: center;
-        width: 94%;
       }
     }
 
 
+  }
 
+  &__box {
+    display: block;
+    height: 150px;
+    align-self: stretch;
+    background: white;
+    min-height: 17px;
+    max-height: 150px;
+    box-sizing: border-box;
+    resize: none;
+    line-height: 24px;
+    overflow: auto;
+    padding: 0 10px;
+    max-width: 100%;
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
 
+    &:hover .control {
+      visibility: visible;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+  }
 }
 
+.control {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 100%;
+  align-self: center;
+  visibility: hidden;
+
+  &:hover {
+    visibility: visible;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    flex-basis: 97%;
+    align-self: center;
+    margin-top: 2px;
+  }
+
+  &__sort {
+    @include centering;
+
+    cursor: pointer;
+    font-size: 12px;
+    padding-left: 4px;
+
+    &-down {
+      @include centering;
+
+      margin-left: 1px;
+    }
+
+    &-up {
+      @include centering;
+
+      margin-right: 1px;
+    }
+  }
+
+  &__close {
+    @include centering;
+
+    display: flex;
+    font-size: 12px;
+    padding-right: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
 
 
 

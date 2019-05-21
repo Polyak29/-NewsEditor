@@ -1,36 +1,24 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-class ResizableTextarea extends Component {
+class FirstResizableTextarea extends Component {
 
   static propTypes = {
     minRows: PropTypes.number.isRequired,
-    maxRows: PropTypes.number.isRequired,
-    position: PropTypes.number,
-    content: PropTypes.string,
-    onChangeText: PropTypes.func,
-    textValue: PropTypes.string
+    maxRows: PropTypes.number.isRequired
   };
 
-
+  state = {
+    value: '',
+    rows: 1
+  };
 
   constructor(props) {
     super(props);
     this.textArea = React.createRef();
-    this.state = {
-      value: props.textValue ? props.textValue: '',
-      rows: 1
-    };
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    const {value} = this.state;
-    if (nextProps.textValue !== value) {
-      this.setState({value: nextProps.textValue});
-    }
-  }
-
-  get lineHeight() {
+  get lineHight() {
     if (window.getComputedStyle(this.textArea.current) === null) {
       return 0;
     }
@@ -38,10 +26,9 @@ class ResizableTextarea extends Component {
   }
 
   handleChange = (event) => {
-    const textareaLineHeight = this.lineHeight;
-    const { minRows, maxRows, position, onChangeText } = this.props;
+    const textareaLineHeight = this.lineHight;
+    const { minRows, maxRows } = this.props;
     const previousRows = event.target.rows;
-    const value = event.target.value;
 
     event.target.rows = minRows;
 
@@ -55,15 +42,13 @@ class ResizableTextarea extends Component {
       event.target.rows = maxRows;
       event.target.scrollTop = event.target.scrollHeight;
     }
-    console.log('position onchange', position);
 
     this.setState({
-      value,
+      value: event.target.value,
       rows: currentRows < maxRows ? currentRows : maxRows
-    }, () => {
-      onChangeText(position, value);
     });
   };
+
 
 
   render() {
@@ -72,11 +57,11 @@ class ResizableTextarea extends Component {
             ref={this.textArea}
             rows={this.state.rows}
             value={this.state.value}
-            className={'title__box'}
+            className={'content__title-firstbox'}
             onChange={this.handleChange}
         />
     );
   }
 }
 
-export default ResizableTextarea;
+export default FirstResizableTextarea;

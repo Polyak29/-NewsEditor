@@ -1,5 +1,5 @@
 
-const types = {
+export const types = Object.freeze({
   FIRST_TITLE: 'first_title',
   TITLE: 'title',
   TEXT: 'text',
@@ -8,6 +8,22 @@ const types = {
   TEXT_IMG: 'text_image',
   IMG_2: '2_image',
   IMG_3: '3_image'
+});
+
+export const title = {
+  type: types.TITLE,
+  content: ''
 };
 
-export default types;
+export const text = {
+  type: types.TEXT,
+  content: ''
+};
+
+export const onUp = 'up';
+
+export const onDown = 'down';
+
+
+
+
